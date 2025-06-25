@@ -1,0 +1,40 @@
+\documentclass{amsart}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[shortlabels]{enumitem}
+\usepackage[colorlinks]{hyperref}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{eg}[defn]{Example}
+\theoremstyle{plain}
+\newtheorem{thm}[defn]{Theorem}
+\newtheorem{prop}[defn]{Proposition}
+\newtheorem{lem}[defn]{Lemma}
+\newtheorem{cor}[defn]{Corollary}
+\theoremstyle{remark}
+\newtheorem{rem}[defn]{Remark}
+
+\numberwithin{equation}{section}
+
+\newcommand{\R}[4]{R_{#1}{}_{#2}{}_{#3}{}^{#4}}
+\DeclareMathOperator{\vol}{vol}
+\DeclareMathOperator{\Sect}{Sect}
+\DeclareMathOperator{\Ric}{Ric}
+\DeclareMathOperator{\Scal}{Scal}
+\DeclareMathOperator{\tr}{tr}
+
+\title[Ricci Rigidity Notes]{Notes on Rigidity Results for Manifolds with Lower Ricci Curvature Bound}
+\author{Mengchen Zeng}
+\date{\today}
+\address{School of Mathematical Sciences, Beijing Normal University, Beijing, China, P.\ R., 100875.}
+
+\begin{document}
+
+\maketitle
+
+\input{tensor.tex}
+
+\end{document}
