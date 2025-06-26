@@ -7,7 +7,7 @@ Let $(M,g)$ be a Riemannian manifold.
 A \emph{tensor} $T$ of type $(r,s)$ is a smooth section of vector bundle
 \[T^{(r,s)}(TM)=\left(\bigotimes_{i=1}^rTM\right)\otimes\left(\bigotimes_{j=1}^sT^*M\right).\]
 On each fiber, a tensor can be regarded as a multilinear map
-\[T|_{T_pM}:\underbrace{T^*_pM\times\cdots\times T^*_pM}_{r}\times\underbrace{T_pM\times\cdots\times T_pM}_{s}\to\mathbb{R},\]
+\[T|_{p}:\underbrace{T^*_pM\times\cdots\times T^*_pM}_{r}\times\underbrace{T_pM\times\cdots\times T_pM}_{s}\to\mathbb{R},\]
 so we can talk about symmetric and positive-definite tensor (for $(0,2)$-tensor), alternating tensor (for $(0,n)$-tensor) well.
 Tensors of type $(r,0)$ are called contravariant tensors, and of type $(0,s)$ are called covariant tensors.
 
@@ -144,7 +144,7 @@ We write a lemma for this.
     \end{enumerate}
 \end{lem}
 \begin{proof}
-    For simplicity, we prove for tensor $X\otimes\omega$, an $(1,1)$-tensor.
+    For simplicity, we prove for tensor $X\otimes\omega$, a $(1,1)$-tensor.
     General case is similar.
     Choose a curve $\gamma:I\to M$, $\dot\gamma(0)=v$, and a parallel basis $\{e_i(t)\}$ along $\gamma$.
     Let $\{\alpha^i(t)\}$ be the dual basis with respective to $\{e^i(t)\}$, and let

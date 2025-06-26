@@ -1,0 +1,239 @@
+\section{Comparison Inequalities}
+
+\subsection{Bochner's Formula}
+
+In this section, we first introduce a useful tool, namely Bochner's formula.
+
+\begin{thm}[Bochner's formula]
+    Let $(M,g)$ be a Riemannian manifold, $f$ be a smooth function on $M$, then we have
+    \[\frac{1}{2}\Delta|\nabla f|^2=|\Hess{f}|^2+\langle\nabla\Delta f,\nabla f\rangle+\Ric(\nabla f,\nabla f).\]
+\end{thm}
+\begin{proof}
+    Since covariant differentiation is clearly commutative with musical isomorphism, we may use musical isomorphism to obtain Bochner's formula for $1$-form:
+    \begin{equation}
+        \frac{1}{2}\Delta|df|^2=|\nabla df|^2+\langle\nabla f,\Delta f\rangle+\Ric(\nabla f,\nabla f).\label{eq:Bochner eq0}
+    \end{equation}
+    Slightly change Ricci identity we obtain
+    \[\nabla^2_{X,Y}df(Z)-\nabla^2_{Y,X}df(Z)=df(R(X,Y)Z).\]
+    Notice that
+    \[\nabla^2_{X,Y}df(Z)=\nabla_X(\Hess{f}(Z,Y))=\nabla_X(\Hess{f}(Y,Z))=\nabla^2_{X,Z}df(Y),\]
+    then by contracting $2,3$ indices, we obtain
+    \begin{equation}
+        \tr_{2,3}\nabla^2df(Y,\cdot,\cdot)-\nabla_Y\Delta f=\Ric(Y,\nabla f).\label{eq:Bochner eq1}
+    \end{equation}
+    Clearly $\nabla_Y\Delta f=\langle Y,\nabla\Delta f\rangle$.
+    We evaluate the first term.
+    Consider $\nabla^2_{X,Y}|df|^2$, we have
+    \[\nabla^2_{X,Y}|df|^2=2\langle\nabla_Xdf,\nabla_Ydf\rangle+2\langle\nabla_X\nabla_Ydf,df\rangle-2\langle\nabla_{\nabla_XY}df,df\rangle.\]
+    Contracting $X,Y$, we obtain
+    \[\frac{1}{2}\Delta|df|^2=|\nabla df|^2+\tr_{2,3}\nabla^2df(\nabla f,\cdot,\cdot)\]
+    Take $Y=\nabla f$ in~\eqref{eq:Bochner eq1}, we obtain equation~\eqref{eq:Bochner eq0}.
+\end{proof}
+
+\begin{rem}
+    For further computation, we notice that $|\Hess{f}|^2$ can usually be computed by the sum of squares of eigenvalues of $\Hess{f}$.
+\end{rem}
+
+\subsection{Some Computations}
+
+We are concerned about volume form of geodesic balls and mean curvature of geodesic spheres, they are connected by Hessian of distance functions.
+For this, we do some calculations.
+
+\begin{lem}
+    Let $(M,g)$ be a Riemannian manifold, $r$ be a distance function with respective to a point $p$.
+    Then within cut locus of $p$, $\Hess{r}=\II_{\partial B_p(\rho)}$, with the normal vector field to be $\nabla r$.
+\end{lem}
+\begin{proof}
+    First we notice that by Gauss lemma, under geodesic polar coordinate, the metric $g$ has form
+    \[g=dr^2+g_{ij}d\theta^i\otimes d\theta^j,\]
+    hence $\nabla r$ is indeed a normal vector field.
+    Let $X,Y\in T_{q}\partial B_p(\rho)$, we have
+    \begin{align*}
+        \Hess{r}(X,Y)&=XYr-\nabla_XYr\\
+        &=X\langle Y,\nabla r\rangle-\langle\nabla_XY,\nabla r\rangle\\
+        &=X\langle Y,\nabla r\rangle-X\langle Y,\nabla r\rangle+\langle Y,\nabla_X\nabla r\rangle\\
+        &=\langle S(X),Y\rangle,
+    \end{align*}
+    where $S$ is the shape operator.
+    Hence we have $\Hess{r}=\II$.
+\end{proof}
+
+\begin{rem}
+    In contrast to some sign convention, we simply ask second fundamental form and shape operator are associated bilinear form and linear transformation, we don't ask they differ a minus sign.
+\end{rem}
+
+By taking contraction, we obtain the following.
+\begin{cor}\label{cor:Delta r=m}
+    We have $\Delta r=m$, where $m$ is the mean curvature of $\partial B_p(\rho)$.
+\end{cor}
+
+Let the volume form of $B_p(\rho)$ be
+\begin{equation}
+    d\vol=\mathcal{A}(r,\theta)dr\wedge d\theta^1\wedge\cdots\wedge d\theta^{n-1}.\label{eq:volume form}
+\end{equation}
+Then we have
+
+\begin{lem}\label{lem:mean curv and A}
+    Let $\mathcal{A}'$ be the derivative with respective to $r$, then
+    \[\frac{\mathcal{A}'(r,\theta)}{\mathcal{A}(r,\theta)}=m(r).\]
+\end{lem}
+\begin{proof}
+    Let's just calculate.
+    We have
+    \begin{align*}
+        \frac{\mathcal{A}'(r,\theta)}{\mathcal{A}(r,\theta)}&=\frac{d}{dr}\log{\mathcal{A}(r,\theta)}\\
+        &=\frac{d}{dr}\log{\sqrt{\det(g_{ij})}}\\
+        &=\frac{1}{2}\frac{1}{\det(g_{ij})}\det(g_{ij})g^{ij}\partial_r\langle\partial_i,\partial_j\rangle\\
+        &=g^{ij}\langle\nabla_r\partial_i,\partial_j\rangle\\
+        &=g^{ij}\langle\nabla_i\nabla r,\partial_j\rangle\\
+        &=m(r).\qedhere
+    \end{align*}
+\end{proof}
+
+\subsection{Comparison Inequalities}
+
+In this subsection we introduce comparison inequalities.
+The first one is the mean curvature comparison.
+We denote $B^H(\rho)$ the geodesic ball of radius $\rho$ in the space form $S^2(H)$ of constant curvature $H$.
+
+\begin{thm}[Mean curvature comparison]\label{thm:mean comparison}
+    Let $(M,g)$ be a Riemannian manifold with $\Ric\geq(n-1)H$, then along any minimal geodesic segement from $p$, we have
+    \[m(\rho)\leq m_H(\rho),\]
+    where $m_H(\rho)$ denotes the mean curvature of $\partial B^H(\rho)$.
+\end{thm}
+\begin{proof}
+    Plug $f=r$ into Bochner's formula, notice that $|\nabla r|=1$, we obtain
+    \[0=|\Hess{r}|^2+\langle\nabla r,\nabla m\rangle+\Ric(\nabla r,\nabla r).\]
+    By Cauchy--Schwarz inequality, we have
+    \[|\Hess{r}|^2=|\II|^2\geq\frac{m^2}{n-1}.\]
+    Moreover, we have
+    \[\Ric(\nabla r,\nabla r)\geq(n-1)H.\]
+    Thus we obtain
+    \[m'=\langle\nabla r,\nabla m\rangle\leq-\frac{m^2}{n-1}-(n-1)H.\]
+    For space form, the equality holds, that is
+    \[m_H'=-\frac{m^2_H}{n-1}-(n-1)H.\]
+    Since $\lim_{r\to 0}(m-m_H)=0$, by standard Riccati equation comparison, we then obtain the result.
+\end{proof}
+
+
+The second theorem is auxiliary, but we still call it a theorem.
+
+\begin{thm}[Ricci comparison]\label{thm:Ricci comparison}
+    Let $(M,g)$ be a Riemannian manifold with $\Ric\geq(n-1)H$.
+    Let $\mathcal{A}(r,\theta)$ be as in~\eqref{eq:volume form}, $\mathcal{A}_H(r,\theta)$ be similar for space form $S^2(H)$.
+    Then along any minimal geodesic segement from $p$,
+    \begin{equation}
+        \frac{\mathcal{A}(r,\theta)}{\mathcal{A}_H(r,\theta)}\label{eq:ricci comparison defn}
+    \end{equation}
+    is nonincreasing with respective to $r$.
+\end{thm}
+\begin{proof}
+    Notice that the logarithm derivative for~\eqref{eq:ricci comparison defn}~is
+    \begin{align*}
+        \frac{d}{dr}\log\left(\frac{\mathcal{A}(r,\theta)}{\mathcal{A}_H(r,\theta)}\right)&=\frac{\mathcal{A}'(r,\theta)}{\mathcal{A}(r,\theta)}-\frac{\mathcal{A}'_H(r,\theta)}{\mathcal{A}_H(r,\theta)}\\
+        &=m(r)-m_H(r)\\
+        &\leq 0,
+    \end{align*}
+    here we used Lemma~\ref{lem:mean curv and A}~and mean curvature comparison inequality.
+\end{proof}
+
+Our last theorem for this section is Bishop--Gromov volume comparison inequality.
+This is the core of our seminar.
+\begin{thm}[Volume comparison]
+    Let $(M,g)$ be a Riemannian manifold with $\Ric\geq(n-1)H$, then
+    \[\frac{\vol(B_p(\rho))}{\vol(B^H(\rho))}\]
+    is nonincreasing with respective to $\rho$.
+\end{thm}
+\begin{proof}
+    We have
+    \begin{align*}
+        \vol(B_p(\rho))&=\int_{S^{n-1}}\int_0^\rho\mathcal{A}(r,\theta)dr\wedge d\theta^1\wedge\cdots\wedge d\theta^{n-1}\\
+        \vol(B^H(\rho))&=\int_{S^{n-1}}\int_0^\rho\mathcal{A}_H(r,\theta)dr\wedge d\theta^1\wedge\cdots\wedge d\theta^{n-1}.
+    \end{align*}
+    Take derivative with respective to $\rho$, we have
+    \begin{align*}
+        &\frac{d}{d\rho}\left(\frac{\vol(B_p(\rho))}{\vol(B^H(\rho))}\right)\\
+        =&\frac{\left(\int_{S^{n-1}}\mathcal{A}(\rho,\theta)d\vol_{S^{n-1}}\right)\left(\int_{S^{n-1}}\int_0^\rho\mathcal{A}_H(r,\theta)dr\wedge d\vol_{S^{n-1}}\right)}{(\vol(B^H(\rho)))^2}\\
+        &-\frac{\left(\int_{S^{n-1}}\mathcal{A}_H(\rho,\theta)d\vol_{S^{n-1}}\right)\left(\int_{S^{n-1}}\int_0^\rho\mathcal{A}(r,\theta)dr\wedge d\vol_{S^{n-1}}\right)}{(\vol(B^H(\rho)))^2}\\
+        =&(\vol(B^H(\rho)))^{-2}\int_0^\rho\bigg(\left(\int_{S^{n-1}}\mathcal{A}(\rho,\theta)d\vol_{S^{n-1}}\right)\left(\int_{S^{n-1}}\mathcal{A}_H(r,\theta)d\vol_{S^{n-1}}\right)\\
+        &-\left(\int_{S^{n-1}}\mathcal{A}_H(\rho,\theta)d\vol_{S^{n-1}}\right)\left(\int_{S^{n-1}}\mathcal{A}(r,\theta)d\vol_{S^{n-1}}\right)\bigg)dr.
+    \end{align*}
+    Therefore, to check
+    \[\rho\mapsto\frac{\vol(B_p(\rho))}{\vol(B^H(\rho))}\]
+    is nonincreasing, it's suffice to check
+    \[r\mapsto\frac{\int_{S^{n-1}}\mathcal{A}(r,\theta)d\vol_{S^{n-1}}}{\int_{S^{n-1}}\mathcal{A}_H(r,\theta)d\vol_{S^{n-1}}}\]
+    is nonincreasing.
+    But we have
+    \[\frac{\int_{S^{n-1}}\mathcal{A}(r,\theta)d\vol_{S^{n-1}}}{\int_{S^{n-1}}\mathcal{A}_H(r,\theta)d\vol_{S^{n-1}}}=\frac{1}{\omega_{n-1}}\int_{S^{n-1}}\frac{\mathcal{A}(r,\theta)}{\mathcal{A}_H(r,\theta)}d\vol_{S^{n-1}},\]
+    which is nonincreasing by Theorem~\ref{thm:Ricci comparison}.
+\end{proof}
+
+\subsection{Comparison Inequality in Weak Sense}
+
+Sometimes we will deal with functions with bad smoothness, so we need comparison theorems in weak sense.
+Here we introduce a special case of Laplacian comparison inequality in distribution sense.
+
+First, notice by Corollary~\ref{cor:Delta r=m}, we have
+\begin{prop}
+    Under same assumption of Theorem~\ref{thm:mean comparison}, mean curvature comparison inequality is equivalent to the following \emph{Laplacian comparison inequality}
+    \[\Delta r\leq\Delta r_H.\]
+\end{prop}
+
+\begin{eg}
+    In our seminar, we are concerned about $H=0$ case the most.
+    We haven't computed $\Hess{r}$ for $\mathbb{R}^n$ yet.
+    Let's compute for $p=0$ and $\Hess{r}(\rho)$.
+    This is just the second fundamental form of sphere
+    \[(x^1)^2+(x^2)^2+\cdots+(x^n)^2=\rho^2.\]
+    Fix the ourward normal vector field $N=\frac{1}{\rho}\mathbf{x}$, then we have
+    \[\II(X,Y)=\langle\nabla_XN,Y\rangle=\left\langle\frac{1}{\rho}X\mathbf{x},Y\right\rangle=\frac{1}{\rho}\langle X,Y\rangle.\]
+    Hence we have
+    \[\Hess{r}=\frac{1}{r}(g-dr\otimes dr).\]
+    Take contraction we have
+    \[\Delta r=\frac{n-1}{r}.\]
+
+    We avoided using Jacobi field to compute Hessian of distance function.
+    This method is limited, and is not recomended.
+\end{eg}
+
+\begin{thm}[Laplacian comparison]
+    Let $(M,g)$ be a Riemannian manifold, with $\Ric\geq 0$.
+    Then for the distance function to $p$, the inequality
+    \[\Delta r\leq\frac{n-1}{r}\]
+    holds in distribution sense, that is, for any $\varphi\in C^\infty_0(M)$, $\varphi\geq 0$, we have
+    \[\int_Mr\Delta\varphi\leq\int_M\frac{n-1}{r}\cdot\varphi.\]
+\end{thm}
+\begin{proof}
+    Let $M$ be decomposed into cut locus with respective to $p$ and a star-shaped domain, namely $M=:\Omega\sqcup\Cut(p)$.
+    Lipschitz function $r$ is differentiable in $\Omega$, thus within $\Omega$ we have
+    \[\Delta r\leq\frac{n-1}{r}.\]
+    Fix $\varphi\in C^\infty_0(M)$, $\varphi\geq 0$.
+    Since $|\Cut(p)|=0$, we have
+    \[\int_Mr\Delta\varphi=\int_\Omega r\Delta\varphi.\]
+    Since $\Omega$ is star-shaped, we can choose a increasing sequence $\Omega_k\subset\Omega$ such that
+    \[\lim_{k\to\infty}\Omega_k=\Omega,\]
+    and each $\Omega_k$ is obtained by shrinking $\Omega$ along $r$'s direction.
+    Since Stokes' formula is valid for Lipschitz functions, and $\varphi$ has compact support, we have
+    \begin{align*}
+        \int_\Omega r\Delta\varphi&=-\int_\Omega\langle\nabla\varphi,\nabla r\rangle\\
+        &=-\lim_{k\to\infty}\int_{\Omega_k}\langle\nabla\varphi,\nabla r\rangle.
+    \end{align*}
+    Last equality holds since $|\nabla r|=1$ within $\Omega$ and $\nabla\varphi$ is bounded, then apply Lebesgues' dominated convergence theorem.
+    By Green's formula, we have
+    \[-\int_{\Omega_k}\langle\nabla r,\nabla\varphi\rangle=\int_{\Omega_k}\Delta r\cdot\varphi-\int_{\partial\Omega_k}\varphi\cdot\frac{\partial r}{\partial\nu},\]
+    where $\nu$ is the outer normal vector field.
+    Since $\Omega_k$ is obtained by shrank $\Omega$ along $r$'s direction and $\varphi\geq 0$, we have
+    \[\int_{\partial\Omega_k}\varphi\cdot\frac{\partial r}{\partial\nu}\geq 0.\]
+    Thus we have
+    \begin{align*}
+        -\int_{\Omega_k}\langle\nabla r,\nabla\varphi\rangle&\leq\int_{\Omega_k}\Delta r\cdot\varphi\\
+        &\leq\int_{\Omega_k}\frac{n-1}{r}\cdot\varphi.
+    \end{align*}
+    Finally we have
+    \begin{align*}
+        \int_Mr\Delta\varphi&\leq\lim_{k\to\infty}\int_{\Omega_k}\frac{n-1}{r}\cdot\varphi\\
+        &=\int_{\Omega}\frac{n-1}{r}\cdot\varphi\\
+        &=\int_M\frac{n-1}{r}\cdot\varphi,
+    \end{align*}
+    we used Lebesgues' dominated convergence theorem and $|\Cut(p)|=0$ again here.
+\end{proof}
