@@ -218,11 +218,11 @@ First, notice by Corollary~\ref{cor:Delta r=m}, we have
         \int_\Omega r\Delta\varphi&=-\int_\Omega\langle\nabla\varphi,\nabla r\rangle\\
         &=-\lim_{k\to\infty}\int_{\Omega_k}\langle\nabla\varphi,\nabla r\rangle.
     \end{align*}
-    Last equality holds since $|\nabla r|=1$ within $\Omega$ and $\nabla\varphi$ is bounded, then apply Lebesgues' dominated convergence theorem.
+    Last equality holds since $|\nabla r|=1$ within $\Omega$ and $\nabla\varphi$ is bounded, then apply Lebesgue's dominated convergence theorem.
     By Green's formula, we have
     \[-\int_{\Omega_k}\langle\nabla r,\nabla\varphi\rangle=\int_{\Omega_k}\Delta r\cdot\varphi-\int_{\partial\Omega_k}\varphi\cdot\frac{\partial r}{\partial\nu},\]
     where $\nu$ is the outer normal vector field.
-    Since $\Omega_k$ is obtained by shrank $\Omega$ along $r$'s direction and $\varphi\geq 0$, we have
+    Since $\Omega_k$ is obtained by shrinking $\Omega$ along $r$'s direction and $\varphi\geq 0$, we have
     \[\int_{\partial\Omega_k}\varphi\cdot\frac{\partial r}{\partial\nu}\geq 0.\]
     Thus we have
     \begin{align*}
@@ -235,5 +235,5 @@ First, notice by Corollary~\ref{cor:Delta r=m}, we have
         &=\int_{\Omega}\frac{n-1}{r}\cdot\varphi\\
         &=\int_M\frac{n-1}{r}\cdot\varphi,
     \end{align*}
-    we used Lebesgues' dominated convergence theorem and $|\Cut(p)|=0$ again here.
+    we used Lebesgue's dominated convergence theorem and $|\Cut(p)|=0$ again here.
 \end{proof}
