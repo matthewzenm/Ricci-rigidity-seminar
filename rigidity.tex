@@ -19,17 +19,27 @@ Volume rigidity builds on the following rigidity result for volume comparison in
     \[|\Hess{r}|^2=|\II|^2\geq\frac{m^2}{n-1},\]
     hence if equality holds, $\II$ has equal eigenvalues.
     Thus $\partial B_p(\rho)$ is totally umbilical, in particular, $m(\rho,\theta)$ is constant on $\partial B_p(\rho)$.
-    Notice that the metric of $M$ under geodesic polar coordinate is
-    \[g=dr\otimes dr+f(r,\theta)g_{S^{n-1}},\]
-    take covariant differentiation and we obtain
-    \[0=\Hess{r}\otimes dr+dr\otimes\Hess{r}+\nabla f(r,\theta)\otimes g_{S^{n-1}}.\]
-    Take contraction we obtain
-    \[0=\Delta rdr+\tr_{1,2}dr\otimes\Hess{r}+df(r,\theta),\]
-    if we write $\tr_{1,2}dr\otimes\Hess{r}=h(r)dr$, we have
-    \[m(r,\theta)dr=-h(r)dr-df(r,\theta).\]
-    Since $m$ is constant with respective to $\theta$, we have $f$ is constant with respective to $\theta$.
+    Under geodesic polar coordinate, with respective to the base point $p$, the metric $g$ has form
+    \[g=dr^2+h(r,\theta).\]
+    Since $\partial B_p(\rho)$ is totally umbilical, we have
+    \[\II=\lambda(r)h\]
+    for all $0<r<R$.
+    Notice that
+    \[\II_{ij}=\langle\nabla_i\partial_r,\partial_j\rangle=\partial_r\langle\partial_i,\partial_j\rangle-\langle\partial_i,\nabla_j\partial_r\rangle=\partial_rh_{ij}-\II_{ij},\]
+    this implies $\II_{ij}=(1/2)\partial_{r}h_{ij}$.
+    Thus we have an ordinary diffenrential equation
+    \[\frac{1}{2}\partial_rh_{ij}=\lambda(r)h_{ij}.\]
+    Solving this equation, we obtain
+    \begin{equation}
+        h_{ij}=(\varphi(r))^2h_{ij}(r_0,\theta).\label{eq:geodesic polar}
+    \end{equation}
+    We know the asymptotic expansion of Riemannian metric under geodesic polar coordinate is
+    \[h_{ij}=r^2\sigma_{ij}+O(r^4),\]
+    where $\sigma$ is the canonical metric of round sphere.
+    Compare~\eqref{eq:geodesic polar}, we obtain $h_{ij}=f(r)\sigma_{ij}$, that is,
+    \[g=dr^2+f(r)\sigma.\]
     Notice that $S^n(H)$ has metric
-    \[g_H=dr\otimes dr+\sn^2_H(r)g_{S^{n-1}}.\]
+    \[g_H=dr\otimes dr+\sn^2_H(r)\sigma.\]
     Plug this into $\vol(B_p(\rho))=\vol(B^H(\rho))$, we have
     \[\int_0^\rho\int_{S^{n-1}}\sqrt{f(r)\det(g_{ij})}d\vol_{S^{n-1}}dr=\int_0^\rho\int_{S^{n-1}}\sqrt{\sn^2_H(r)\det(g_{ij})}d\vol_{S^{n-1}}dr.\]
     Notice that
@@ -101,7 +111,7 @@ We expect rigidity result happens when a line exists.
 This leads to Cheeger--Gromoll's splitting theorem.
 
 \begin{thm}[Splitting]
-    Let $(M,g)$ be a Riemannian manifold with $\Ric\geq 0$, and a line exists on $M$.
+    Let $(M,g)$ be a simply-connected Riemannian manifold with $\Ric\geq 0$, and a line exists on $M$.
     Then $M$ is isometric to $\mathbb{R}\times N$ with product metric.
 \end{thm}
 
@@ -118,7 +128,7 @@ Before proving this theorem, we need to input several big theorems.
 \end{thm}
 
 \begin{thm}[De Rham decomposition]
-    Let $(M,g)$ be a Riemannian manifold.
+    Let $(M,g)$ be a simply-connected Riemannian manifold.
     Let $\mathcal{F}$ be a distribution that is parallel with respective to the Levi--Civita connection, $\mathcal{F}^\perp$ be its orthogonal complement.
     For any $p\in M$, let $N,N^\perp$ be the maximal integral submanifold of $\mathcal{F},\mathcal{F}^\perp$ at $p$.
     Equip $N,N^\perp$ with induced metric from $M$, then $M$ is isometric to $N\times N^\perp$ with product metric.
