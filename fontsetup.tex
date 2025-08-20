@@ -1,0 +1,69 @@
+\font\tenrm=txr
+\font\sevenrm=txr at 7pt
+\font\fiverm=txr at 5pt
+\newfam\mathrm
+\textfont\mathrm=\tenrm
+\scriptfont\mathrm=\sevenrm
+\scriptscriptfont\mathrm=\fiverm
+\font\tenmrm=txr
+\font\sevenmrm=txr at 7pt
+\font\fivemrm=txr at 5pt
+\textfont0=\tenmrm
+\scriptfont0=\sevenmrm
+\scriptscriptfont0=\fivemrm
+
+\font\tensl=txsl
+\font\tensc=txsc
+
+\font\tenbf=txb
+\font\tenmbf=txb
+\font\sevenmbf=txb at 7pt
+\font\fivembf=txb at 5pt
+\newfam\mathbf
+\textfont\mathbf=\tenmbf
+\scriptfont\mathbf=\sevenmbf
+\scriptscriptfont\mathbf=\fivembf
+
+\font\tenit=txi
+\font\tenmit=txmi
+\font\sevenmit=txmi at 7pt
+\font\fivemit=txmi at 5pt
+\newfam\mathit
+\textfont\mathit=\tenmit
+\scriptfont\mathit=\sevenmit
+\scriptscriptfont\mathit=\fivemit
+\textfont1=\tenmit
+\scriptfont1=\sevenmit
+\scriptscriptfont1=\fivemit
+
+\font\tenmsy=txsy
+\font\sevenmsy=txsy at 7pt
+\font\fivemsy=txsy at 5pt
+\textfont2=\tenmsy
+\scriptfont2=\sevenmsy
+\scriptscriptfont2=\fivemsy
+
+\font\tenmex=txex
+\font\sevenmex=txex at 7pt
+\font\fivemex=txex at 5pt
+\textfont3=\tenmex
+\scriptfont3=\sevenmex
+\scriptscriptfont3=\fivemex
+
+\font\tenmbb=msbm10
+\font\sevenmbb=msbm7
+\font\fivembb=msbm5
+\newfam\bbfam
+\textfont\bbfam=\tenmbb
+\scriptfont\bbfam=\sevenmbb
+\scriptscriptfont\bbfam=\fivembb
+
+\def\rm{\ifmmode\fam\mathrm\else\tenrm\fi}
+\def\bf{\ifmmode\fam\mathbf\else\tenbf\fi}
+\def\bb{\fam\bbfam}
+\def\mit{\fam\mathit}
+\let\sl=\tensl
+\let\it=\tenit
+\let\sc=\tensc
+
+\rm

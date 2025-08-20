@@ -1,246 +1,244 @@
-\section{Tensors}
-
-\subsection{Notation}
-
-We first fix the notation of tensors.
+% !TeX root = main.tex
+\centerline{\sectionfont\the\sectcount.\ Tensors}
+\medskip
+\noindent{\bf\the\sectcount.\the\subsectcount.\ Notation.}
+We first fix notation of tensors.
 Let $(M,g)$ be a Riemannian manifold.
-A \emph{tensor} $T$ of type $(r,s)$ is a smooth section of vector bundle
-\[T^{(r,s)}(TM)=\left(\bigotimes_{i=1}^rTM\right)\otimes\left(\bigotimes_{j=1}^sT^*M\right).\]
+A {\it tensor} $T$ of type $(r,s)$ is a smooth section of vector bundle
+$$T^{(r,s)}(TM)=\left(\bigotimes_{i=1}^rTM\right)\otimes\left(\bigotimes_{j=1}^sT^*M\right).$$
 On each fiber, a tensor can be regarded as a multilinear map
-\[T|_{p}:\underbrace{T^*_pM\times\cdots\times T^*_pM}_{r}\times\underbrace{T_pM\times\cdots\times T_pM}_{s}\to\mathbb{R},\]
-so we can talk about symmetric and positive-definite tensor (for $(0,2)$-tensor), alternating tensor (for $(0,n)$-tensor) well.
+$$T|_p:\underbrace{T^*_pM\times\cdots\times T^*_pM}_{r}\times\underbrace{T_pM\times\cdots\times T_pM}_{s}\to{\bb R},$$
+so we can talk about symmetric and positive-definite tensor (for $(0,2)$-tensor), alternating tensor (for $(0,n)$-tensor well.
 Tensors of type $(r,0)$ are called contravariant tensors, and of type $(0,s)$ are called covariant tensors.
 
 Let $(x^1,\cdots,x^n)$ be a local coordinate.
 We will adopt the notation $\{\partial_1,\cdots,\partial_n\}$ for a local frame for $TM$, and $\{dx^1,\cdots,dx^n\}$ for a local frame for $T^*M$.
-We will adopt the \textsc{Einstein} summation convention, so the local expression for an $(r,s)$-tensor $T$ is
-\[T=T^{i_1\cdots i_r}_{j_1\cdots j_s}\partial_{i_1}\otimes\cdots\otimes\partial_{i_r}\otimes dx^{j_1}\otimes\cdots\otimes dx^{j_s}.\]
+We will adopt the {\sc Einstein} summation convention, so the local expression for an $(r,s)$- tensor $T$ is
+$$T=T^{i_1\cdots i_r}_{j_1\cdots j_s}\partial_{i_1}\otimes\partial_{i_r}\otimes dx^{j_1}\otimes\cdots\otimes dx^{j_s}.$$
 
-The tangent space $TM$ and cotangent space $T^*M$ are canonically isomorphic via \emph{musical isomorphism}.
+The tangent space $TM$ and cotangent space $T^*M$ are canonically isomorphic via {\it musical isomorphism}.
 Under a local coordinate $(x^1,\cdots,x^n)$, let $g=g_{ij}$.
 Then we have the musical isomorphism (``lowering index'')
-\begin{align*}
-    \flat:TM&\to T^*M\\
-    X^i\partial_i&\mapsto g_{jk}X^kdx^j,
-\end{align*}
+$$\eqalign{
+	\flat:TM&\to T^*M\cr
+	X^i\partial_i&\mapsto g_{jk}X^kdx^j,
+}$$
 and we denote $X=X^i\partial_i$, $X^\flat=g_{jk}X^kdx^j$.
 The inverse is given by (``raising index'')
-\begin{align*}
-    \sharp:T^*M&\to TM\\
-    \omega_idx^i&\mapsto g^{jk}\omega_k\partial_j,
-\end{align*}
+$$\eqalign{
+	\sharp:T^*M&\to TM\cr
+	\omega_idx^i&\mapsto g^{jk}\omega_k\partial_j,
+}$$
 and we denote $\omega=\omega_idx^i$, $\omega^\sharp=g^{jk}\omega_k\partial_j$.
-Clearly musical isomorphism can be extended to arbitrary tensors.
+Clearly musical isomorphism can be extend to arbitrary tensors.
+\advance\subsectcount by 1
+\bigskip
 
-\subsection{Contration}
-
+\noindent{\bf\the\sectcount.\the\subsectcount.\ Contraction.}
 We discuss contraction of two indices of a tensor in this subsection.
 
 First, let us check this naive example.
 Let $V$ be an $n$-dimensional Euclidean space with flat metric (i.e.\ with metric $\delta_{ij}$), $S:V\to V$ be a (symmetric) linear transformation, $L$ be its associated bilinear function.
 Let $S$ and $L$ has matrices
-\[\begin{bmatrix}
-    a^1_1 & a^1_2 & \cdots & a^1_n \\
-    a^2_1 & a^2_2 & \cdots & a^2_n \\
-    \vdots & \vdots & \ddots & \vdots \\
-    a^n_1 & a^n_2 & \cdots & a^n_n
-\end{bmatrix}\quad\text{and}\quad\begin{bmatrix}
-    a_{11} & a_{12} & \cdots & a_{1n} \\
-    a_{21} & a_{22} & \cdots & a_{2n} \\
-    \vdots & \vdots & \ddots & \vdots \\
-    a_{n1} & a_{n2} & \cdots & a_{nn}
-\end{bmatrix},\]
+$$\left[\matrix{
+	a^1_1 & a^1_2 & \cdots & a^1_n \cr
+	a^2_1 & a^2_2 & \cdots & a^2_n \cr
+	\vdots & \vdots & \ldots & \vdots \cr
+	a^n_1 & a^n_2 & \cdots & a^n_n
+	}\right]\quad{\rm and}\quad\left[\matrix{
+	a_{11} & a_{12} & \cdots & a_{1n} \cr
+	a_{21} & a_{22} & \cdots & a_{2n} \cr
+	\vdots & \vdots & \ldots & \vdots \cr
+	a_{n1} & a_{n2} & \cdots & a_{nn}
+}\right],$$
 the matrices of $S$ and $L$ are related by the musical isomorphism of Euclidean metric $\delta_{ij}$, since we know $a^i_j=a_{ij}$.
 Clearly we want their trace or contraction to be the same.
-To define the contraction of $S$ is relatively easy: $S$ has expression
-\[S=a^i_jv^j\otimes v_i^*,\]
-where we take $\{v^i\},\{v_i^*\}$ to be a basis and whose dual basis of $V$ respectively.
-Plug $v^j$ into $v_i^*$ and take summation, we obtain
-\[\tr_{1,2}S=\sum_{i=1}^na^i_i.\]
+To define the contraction of $S$ is relatively easy:
+$S$ has expression
+$$S=a^i_jv^j\otimes v^*_j,$$
+where we take $\{v^i\},\{v^*_i\}$ to be a basis and whose dual basis of $V$ respectively.
+Plug $v^j$ into $v^*_i$ and take summation, we obtain
+$$\tr_{1,2}S=\sum_{i=1}^na^i_i.$$
 Since we want
-\[\tr_{1,2}L=\sum_{i=1}^na_{ii},\]
-this enlighten us that two tensors should have same contraction modulo a musical isomorphism.
+$$\tr_{1,2}L=\sum_{i=1}^na_{ii},$$
+this enlighten us that two tensors should have smae contraction modulo a musical isomorphism.
 
 Thus we have the following definition.
-\begin{defn}
-    Let $(M,g)$ be a Riemannian manifold, $(x^1,\cdots,x^n)$ be a local coordinate.
-    Let $S=S^i_j\partial_i\otimes dx^j$ be an $(1,1)$-tensor, then the \emph{contraction} of indices $1,2$ is defined to be
-    \[\tr_{1,2}S=S^i_i.\]
-    Let $L=L_{ij}dx^i\otimes dx^j$ be an $(0,2)$-tensor, then the contraction of indices $1,2$ is defined to be
-    \[\tr_{1,2}L=g^{ij}L_{ij}.\]
-    Similarly, we can define the contraction of tensors of type $(r,s)$.
-\end{defn}
+\medskip
+\noindent{\bf Definition~\propnumber.} Let $(M,g)$ be a Riemannian manifold, $(x^1,\cdots,x^n)$ be a local coordinate.
+Let $S=S^i_j\partial_i\otimes dx^j$ be an $(1,1)$-tensor, then the {\it contraction}\/ of indices $1,2$ is defined to be
+$$\tr_{1,2}S=S^i_i.$$
+Let $L=L_{ij}dx^i\otimes dx^j$ be an $(0,2)$-tensor, then the contraction of indices $1,2$ is defined to be
+$$\tr_{1,2}L=g^{ij}L_{ij}.$$
+Similarly, we can define the contraction of tensors of type $(r,s)$.
+\advance\propcount by 1
+\advance\subsectcount by 1
+\bigskip
 
-\subsection{Norm of a Tensor}
-
+\noindent{\bf\the\sectcount.\the\subsectcount.\ Norm of a Tensor.}
 We still look at our very first definition of norm.
 We use an exaggerated way to write the norm of a vector field $X$:
-\begin{align*}
-    |X|^2&=g(X,X)\\
-    &=\tr_{1,2}\left(\tr_{1,3}(g\otimes X)\otimes X\right)\\
-    &=\tr_{1,2}(X^\flat\otimes X).
-\end{align*}
-If we think $X:T^*M\to\mathbb{R}$ is a function on $T^*M$, then $X^\flat:TM\to\mathbb{R}$ is its adjoint, which can be denoted by $X^*$.
+$$\eqalign{
+	|X|^2&=g(X,X)\cr
+	&=\tr_{1,2}(\tr_{1,3}(g\otimes X)\otimes X)\cr
+	&=\tr_{1,2}(X^\flat\otimes X).
+}$$
+If we think $X:T^*M\to{\bb R}$ is a function on $T^*M$, then $X^\flat:TM\to{\bb R}$ is its adjoint, which can be denoted by $X^*$.
 Thus we reached the definition.
+\medskip
+\noindent{\bf Definition~\propnumber.} Let $(M,g)$ be a Riemannian manifold, and $T$ be an $(r,s)$-tensor on $M$.
+Let $T^*$ be the $(s,r)$-tensor related to $T$ with musical isomorphism, we permute $T^*$ with covariant part lying before contravariant part.
+Define the {\it norm}\/ of $T$ by
+$$|T|^2=\tr_{1,r+s+1}\tr_{2,r+s+2}\cdots\tr_{r+s,2r+2s}(T^*\otimes T).$$
+\advance\propcount by 1
+\medskip
+\noindent{\bf Example~\propnumber.} We will use the norm of a Hessian, that is, a $(0,2)$-tensor.
+Let $L=L_{ij}dx^i\otimes dx^j$ be such a tensor.
+Then we have
+$$L^*=g^{ik}g^{jl}L_{kl}\partial_i\otimes\partial_j,$$
+and
+$$L^*\otimes L=g^{im}g^{jn}L_{mn}L_{kl}\partial_i\otimes\partial_j\otimes dx^k\otimes dx^l.$$
+We take contraction and obtain
+$$\tr_{1,3}\tr_{2,4}(L^*\otimes l)=g^{ik}g^{jl}L_{ij}L_{kl}.$$
+\advance\propcount by 1
+\advance\subsectcount by 1
+\bigskip
 
-\begin{defn}
-    Let $(M,g)$ be a Riemannian manifold, and $T$ be an $(r,s)$-tensor on $M$.
-    Let $T^*$ be the $(s,r)$-tensor related to $T$ with musical isomorphism, we permute $T^*$ with covariant part lying before contravariant part.
-    Define the \emph{norm} of $T$ by
-    \[|T|^2=\tr_{1,r+s+1}\tr_{2,r+s+2}\cdots\tr_{r+s,2r+2s}(T^*\otimes T).\]
-\end{defn}
-
-\begin{eg}
-    We will use the norm of a Hessian, that is, a $(0,2)$-tensor.
-    Let $L=L_{ij}dx^i\otimes dx^j$ be such a tensor.
-    Then we have
-    \[L^*=g^{ik}g^{jl}L_{kl}\partial_i\otimes\partial_j,\]
-    and
-    \[L^*\otimes L=g^{im}g^{jn}L_{mn}L_{kl}\partial_i\otimes\partial_j\otimes dx^k\otimes dx^l.\]
-    We take contraction and obtain
-    \[\tr_{1,3}\tr_{2,4}(L^*\otimes L)=g^{ik}g^{jl}L_{ij}L_{kl}.\]
-\end{eg}
-
-\subsection{Covariant Derivative and Covariant Differentiation}
-
+\noindent{\bf\the\sectcount.\the\subsectcount.\ Covariant Derivative and Covariant Differentiation.}
 Let $(M,g)$ be a Riemannian manifold and $\nabla$ be its Levi--Civita connection.
 Recall that given a vector field $Y$ and a tangent vector $X_p\in T_pM$ (let it be the restriction of $X$ at $p$), the covariant derivative $\nabla_XY(p)$ can be evaluated as follows:
 Choose an arbitrary curve $\gamma:I\to M$ with $\gamma(0)=p,\dot\gamma(0)=X_p$, let $P_t$ be the parallel transportation of $\nabla$ along $\gamma$.
 Then we have
-\[\nabla_XY|_p=\lim_{t\to 0}\frac{1}{t}\left(P^{-1}_t(Y(\gamma(t))-Y(\gamma(0)))\right).\]
+$$\nabla_XY|_p=\lim_{t\to 0}{1\over t}(P^{-1}_t\left(Y(\gamma(t))-Y(\gamma(0)))\right).$$
 
 Generalize this idea to tensors, just as we did for Lie derivative, we can reach the definition of covariant derivative of tensors.
-\begin{defn}
-    Let $T$ be an $(r,s)$-tensor, $p\in M$ and $X_p\in T_pM$ (let it be the restriction of $X$ at $p$).
-    We define $\nabla_XT(p)$ as follows:
-    Choose an arbitrary curve $\gamma:I\to M$ with $\gamma(0)=p,\dot\gamma(0)=X_p$, let $P_t$ be the parallel transportation of $\nabla$ along $\gamma$.
-    Define $P^\otimes_t:T^{(r,s)}T_{p}M\to T^{(r,s)}T_{\gamma(t)}M$ by
-    \[P^\otimes_t=\underbrace{P_t\otimes\cdots\otimes P_t}_{r}\otimes\underbrace{(P^*_t)^{-1}\otimes\cdots\otimes(P^*_t)^{-1}}_{s},\]
-    and then we define
-    \[\nabla_XT|_p=\lim_{t\to 0}\frac{1}{t}\left((P^\otimes_t)^{-1}(T(\gamma(t)))-T(\gamma(0))\right).\]
-\end{defn}
-
+\medskip
+\noindent{\bf Definition~\propnumber.} Let $T$ be an $(r,s)$-tensor, $p\in M$ and $X_p\in T_pM$ (let it be the restriction of $X$ at $p$).
+We define $\nabla_XT(p)$ as follows:
+Choose an arbitrary curve $\gamma:I\to M$ with $\gamma(0)=p,\dot\gamma(0)=X_p$, let $P_t$ bethe parallel transportationof $\nabla$ along $\gamma$.
+Define $P^\otimes_t:T^{(r,s)}T_pM\to T^{(r,s)}T_{\gamma(t)}M$ by
+$$P^\otimes_t=\underbrace{P_t\otimes\cdots\otimes P_t}_{r}\otimes\underbrace{(P^*_t)^{-1}\otimes\cdots\otimes(P^*_t)^{-1}}_{s},$$
+and then we define
+$$\nabla_XT|_p=\lim_{t\to 0}{1\over t}\left((P^\otimes_t)^{-1}(T(\gamma(t))-T(\gamma(0)))\right).$$
+\advance\propcount by 1
+\medskip
 We also have the notion of covariant differentiation.
-\begin{defn}
-    Let $T$ be an $(r,s)$-tensor.
-    The \emph{covariant differentiation} $\nabla T$ of $T$ is an $(r,s+1)$-tensor such that
-    \[\nabla T(\cdots,X)=\nabla_XT(\cdots).\]
-\end{defn}
-
-\begin{eg}
-    The metric compatibility of Levi--Civita connection is equivalent to $\nabla g=0$.
-    It's hard to verify this property by now, but we will soon figure out how to compute covariant derivative.
-\end{eg}
-
+\medskip
+\noindent{\bf Definition~\propnumber.} Let $T$ be an $(r,s)$-tensor.
+The {\it covariant differentiation}\/ $\nabla T$ of $T$ is an $(r,s+1)$-tensor such that
+$$\nabla T(\cdots,X)=\nabla_XT(\cdots).$$
+\advance\propcount by 1
+\medskip
+\noindent{\bf Example~\propnumber.} The metric compatibility of Levi--Civita connection is equivalent to $\nabla g=0$.
+It's hard to verify this property by now, but we will soon figure out how to compute covariant derivative.
+\advance\propcount by 1
+\medskip
 Two properties are essential to compute the covariant derivative.
 We write a lemma for this.
+\medskip
+\proclaim Lemma~\propnumber. Covariant derivative satisfies the\/ {\rm Leibniz law} and commutes with contraction, that is, for tensors $S,T$, we have
+$$\nabla_X(S\otimes T)=S\otimes(\nabla_XT)+(\nabla_XS)\otimes T,$$
+and
+$$\nabla_X(\tr_{i,j}T)=\tr_{i,j}\nabla_XT$$
 
-\begin{lem}
-    \begin{enumerate}[\rm(1)]
-        \item Covariant derivative satisfies the \emph{Leibniz law}, that is, for tensors $S,T$, we have
-        \[\nabla_X(S\otimes T)=S\otimes(\nabla_XT)+(\nabla_XS)\otimes T.\]
-        \item Covariant derivative commutes with contraction, that is, for tensor $T$, we have
-        \[\nabla_X(\tr_{i,j}T)=\tr_{i,j}\nabla_XT.\]
-    \end{enumerate}
-\end{lem}
-\begin{proof}
-    For simplicity, we prove for tensor $X\otimes\omega$, a $(1,1)$-tensor.
-    General case is similar.
-    Choose a curve $\gamma:I\to M$, $\dot\gamma(0)=v$, and a parallel basis $\{e_i(t)\}$ along $\gamma$.
-    Let $\{\alpha^i(t)\}$ be the dual basis with respective to $\{e^i(t)\}$, and let
-    \begin{align*}
-        X(\gamma(t))&=X^i(t)e_i(t),\\
-        \omega(\gamma(t))&=\omega_i(t)\alpha^i(t).
-    \end{align*}
-    Thus we have
-    \begin{align*}
-        \nabla_v(X\otimes\omega)&=\left.\frac{d}{dt}\right|_{t=0}(X^i(t)\omega_j(t))e_i(0)\otimes\alpha^j(0)\\
-        &=\left(\dot{X}^i(0)\omega_j(0)+X^i(0)\dot\omega_j(0)\right)e_i(0)\otimes\alpha^j(0)\\
-        &=(\nabla_vX)\otimes\omega+X\otimes(\nabla_v\omega).
-    \end{align*}
-    Moreover, we have
-    \begin{align*}
-        \nabla_v(\tr_{1,2}X\otimes\omega)&=\left.\frac{d}{dt}\right|_{t=0}(X^i(t)\omega_i(t))\\
-        &=\dot{X}^i(0)\omega_i(0)+X^i(0)\dot\omega_i(0)\\
-        &=\tr_{1,2}(\nabla_vX)\otimes\omega+\tr_{1,2}X\otimes(\nabla_v\omega)\\
-        &=\tr_{1,2}(\nabla_v(X\otimes\omega)).
-    \end{align*}
-    Thus we proved the lemma.
-\end{proof}
+\noindent{\it Proof.} For simplicity, we prove for tensor $X\otimes\omega$, a $(1,1)$-tensor.
+General case is similar.
+Choose a curve $\gamma:I\to M$, $\dot\gamma(0)=v$, and a parallel basis $\{e_i(t)\}$ along $\gamma$.
+Let $\{\alpha^i(t)\}$ be the dual basis with respective to $\{e_i(t)\}$, and let
+$$\eqalign{
+	&X(\gamma(t))=X^i(t)e_i(t),\cr
+	&\omega(\gamma(t))=\omega_i(t)\alpha^i(t).
+}$$
+Thus we have
+$$\eqalign{
+	\nabla_v(X\otimes\omega)&=\left.{d\over dt}\right|_{t=0}(X^i(t)\omega_j(t))e_i(0)\alpha^j(0)\cr
+	&=\left(\dot{X}^i(0)\omega_j(0)+X^i(0)\dot\omega_j(0)\right)e_i(0)\otimes\alpha^j(0)\cr
+	&=(\nabla_vX)\otimes\omega+X\otimes(\nabla_v\omega).
+}$$
+Moreover, we have
+$$\eqalign{
+	\nabla_v(\tr_{1,2}X\otimes\omega)&=\left.{d\over dt}\right|_{t=0}(X^i(t)\omega_i(t))\cr
+	&=\dot{X}^i(0)\omega_i(0)+X^i(0)\dot\omega_i(0)\cr
+	&=\tr_{1,2}(\nabla_vX)\otimes\omega+\tr_{1,2}X\otimes(\nabla_v\omega)\cr
+	&=\tr_{1,2}(\nabla_v(X\otimes\omega)).
+}$$
+Thus we proved the lemma.
+\advance\propcount by 1
+\qed
 
-\begin{eg}
-    In this example, we illustrate how to calculate the covariant derivative of a covariant tensor.
-    Let $T$ be a $(0,s)$-tensor, we want to know what is
-    \[(\nabla_XT)(X_1,\cdots,X_s).\]
-    For simplicity we let $s=2$, there is no difference for general case.
-    As we did before, we write $T(X_1,X_2)$ into a form of contraction, and then use the commutativity of contraction and covariant derivative.
-    It writes
-    \begin{align*}
-        XT(X_1,X_2)=&\nabla_X(T(X_1,X_2))\\
-        =&\nabla_X(\tr_{1,3}\tr_{2,4}T\otimes X_1\otimes X_2)\\
-        =&\tr_{1,3}\tr_{2,4}\nabla_X(T\otimes X_1\otimes X_2)\\
-        =&\tr_{1,3}\tr_{2,4}(T\otimes(\nabla_XX_1)\otimes X_2+T\otimes X_1\otimes(\nabla_XX_2))\\
-        &+\tr_{1,3}\tr_{2,4}((\nabla_XT)\otimes X_1\otimes X_1)\\
-        =&(\nabla_XT)(X_1,X_2)+T(\nabla_XX_1,X_2)+T(X_1,\nabla_XX_2),
-    \end{align*}
-    thus we have
-    \begin{equation}
-        (\nabla_XT)(X_1,X_2)=XT(X_1,X_2)-T(\nabla_XX_1,X_2)-T(X_1,\nabla_XX_2).\label{eq:covdiff eq1}
-    \end{equation}
-    In particular, if we take $T=g$, then the equation~\eqref{eq:covdiff eq1}~is nothing but the metric compatibility of Levi--Civita connection.
-\end{eg}
+\noindent{\bf Example~\propnumber.} In this example, we illustrate how to calculate the covariant derivative of a covariant tensor.
+Let $T$ be a $(0,s)$-tensor, we want to know what is
+$$(\nabla_XT)(X_1,\cdots,X_s).$$
+For simplicity we let $s=2$, there is no difference for general case.
+As we did before, we write $T(X_1,X_2)$ into a form of contraction, and then use the commutativity of contraction and covariant derivative.
+It writes
+$$\eqalign{
+	XT(X_1,X_2)&=\nabla_X(T(X_1,X_2))\cr
+	&=\nabla_X(\tr_{1,3}\tr_{2,4}T\otimes X_1\otimes X_2)\cr
+	&=\tr_{1,3}\tr_{2,4}\nabla_X(T\otimes X_1\otimes X_2)\cr
+	&=\tr_{1,3}\tr_{2,4}(T\otimes(\nabla_XX_1)\otimes X_2+T\otimes X_1\otimes(\nabla_XX_2))+\cr
+	&\quad+\tr_{1,3}\tr_{2,4}((\nabla_XT)\otimes X_1\otimes X_2)\cr
+	&=(\nabla_XT)(X_1,X_2)+T(\nabla_XX_1,X_2)+T(X_1,\nabla_XX_2),
+}$$
+thus we have
+$$(\nabla_XT)(X_1,X_2)=XT(X_1,X_2)-T(\nabla_XX_1,X_2)-T(X_1,\nabla_XX_2).\eqdef{eq:metric compatibility}$$
+In particular, if we take $T=g$, then the equation~\eqref{eq:metric compatibility}~is nothing but the metric compatibility of Levi--Civita connection.
+\advance\propcount by 1
+\medskip
+\noindent{\bf Example~\propnumber.} Sometimes calculating covariant derivative in a local chart is useful.
+Let $\nabla dx^i=\omega_{jk}dx^j\otimes dx^k$, then we have
+$$\eqalign{
+	\omega_{jk}&=(\nabla dx^i)(\partial_j,\partial_k)\cr
+	&=(\nabla_kdx^i)(\partial_j)\cr
+	&=\partial_k(dx^i(\partial_j))-dx^i(\nabla_k\partial_j)\cr
+	&=-\Gamma^i_{kj}.
+}$$
+Thus we have $\nabla dx^i=-\Gamma^i_{kj}dx^j\otimes dx^k$.
+\advance\propcount by 1
+\advance\subsectcount by 1
+\bigskip
 
-\begin{eg}
-    Sometimes calculating covariant derivative in a local chart is useful.
-    Let $\nabla dx^i=\omega_{jk}dx^j\otimes d^k$, then we have
-    \begin{align*}
-        \omega_{jk}&=(\nabla dx^i)(\partial_j,\partial_k)\\
-        &=(\nabla_kdx^i)(\partial_j)\\
-        &=\partial_k(dx^i(\partial_j))-dx^i(\nabla_k\partial_j)\\
-        &=-\Gamma_{kj}^i.
-    \end{align*}
-    Thus we have $\nabla dx^i=-\Gamma_{kj}^idx^j\otimes dx^k$.
-\end{eg}
-
-\subsection{Curvature Endomorphism}
-
+\noindent{\bf\the\sectcount.\the\subsectcount.\ Curvature Endomorphism.}
 We next consider second covariant differentiation.
 We first introduce a symbol.
-
-\begin{defn}
-    Let $T$ be a tensor, $X,Y$ be vector fields, we use $\nabla_{X,Y}^2T$ to denote the tensor
-    \[\nabla^2_{X,Y}(\cdots):=\nabla(\nabla T)(\cdots,Y,X).\]
-\end{defn}
-
+\medskip
+\noindent{\bf Definition~\propnumber.} Let $T$ be a tensor, $X,Y$ be vector fields, we use $\nabla^2_{X,Y}T$ to denote the tensor
+$$\nabla^2_{X,Y}(\cdots):=\nabla(\nabla T)(\cdots,Y,X).$$
+\advance\propcount by 1
+\medskip
 We have an explicit formula for second covariant differentiation.
+\medskip
+\definexref{lem:2nd cov diff}{\propnumber}{lem}
+\proclaim Lemma~\propnumber. We have
+$$\nabla^2_{X,Y}T=\nabla_X\nabla_YT-\nabla_{\nabla_XY}T.$$
 
-\begin{lem}\label{lem:second covdiff}
-    We have
-    \[\nabla_{X,Y}^2T=\nabla_X\nabla_YT-\nabla_{\nabla_XY}T.\]
-\end{lem}
+\advance\propcount by 1
+We leave this lemma as an exercise. (Just remember how do you calculate Hessian in Riemannian geometry class)
+\medskip
+\noindent{\bf Definition~\propnumber.} The {\it curvature endomorphism}\/ is given by
+$$\eqalign{
+	R(X,Y):\Gamma\left(T^{r,s}TM\right)&\to\Gamma\left(T^{r,s}(TM)\right)\cr
+	T&\mapsto\nabla^2_{Y,X}T-\nabla^2_{X,Y}T.
+}$$
+\advance\propcount by 1
+\medskip
+\proclaim Propsition~\propnumber~{\rm(Ricci identity)}.
+We have
+$$R(X,Y)T=-\nabla_X\nabla_YT+\nabla_Y\nabla_XT+\nabla_{[X,Y]}T.$$
 
-We leave this lemma as an exercise.
-(Just remember how do you calculate Hessian in Riemannian geometry class.)
+\noindent{\it Proof}.\/ Just combine the definition of curvature endomorphism and~\ref{lem:2nd cov diff}.
+\advance\propcount by 1
+\qed
 
-\begin{defn}
-    The \emph{curvature endomorphism} is given by
-    \begin{align*}
-        R(X,Y):\Gamma\left(T^{(r,s)}TM\right)&\to\Gamma\left(T^{(r,s)}TM\right)\\
-        T&\mapsto\nabla^2_{Y,X}T-\nabla^2_{X,Y}T.
-    \end{align*}
-\end{defn}
+\noindent{\it Remark.}\/ There are many ways to interpret curvature.
+One way (maybe the most common way) to understand curvature is that curvature measures the deviation of map $X\mapsto\nabla_X$ from being a Lie algebra homomorphism, as Ricci identity indicates.
+Another way is that curvature measures the deviation of second covariant derivative from being commutative.
+However, this viewpoint cannot explain the existence of $\nabla_{[X,Y]}$ term.
+We choose here the viewpoint that curvature measures the deviation of second covariant differentiation being commutative.\par
+Last but not least, beware of our sign convention.
 
-\begin{prop}[Ricci identity]
-    We have
-    \[R(X,Y)T=-\nabla_X\nabla_YT+\nabla_Y\nabla_XT+\nabla_{[X,Y]}T.\]
-\end{prop}
-
-\begin{rem}
-    There are many ways to interpret curvature.
-    One way (maybe the most common way) to understand curvature is that curvature measures the deviation of map $X\mapsto\nabla_X$ from being a Lie algebra homomorphism, as the Ricci identity indicates.
-    Another way is that curvature measures the deviation of second covariant derivative from being commutative.
-    However, this viewpoint cannot explain the existence of $\nabla_{[X,Y]}$ term.
-    We choose here the viewpoint of curvature measures the deviation of second covariant differentiation being commutative.
-
-    Last but not least, beware of our sign convention.
-\end{rem}
+\advance\sectcount by 1
+\subsectcount=1
+\eqnumber=0
+\propcount=1
+\bigskip

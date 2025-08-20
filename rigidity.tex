@@ -1,178 +1,162 @@
-\section{Rigidity Results}
+% !TeX root = main.tex
 
+\centerline{\sectionfont\the\sectcount. Rigidity Results}
+\medskip
 In this section, we present volume rigidity and diameter rigidity for closed and open manifolds respectively.
-
-\subsection{Volume Rigidity}
-
+\medskip
+\noindent{\bf\the\sectcount.\the\subsectcount.\ Volume Rigidity.}
 Volume rigidity builds on the following rigidity result for volume comparison inequality.
-\begin{prop}\label{prop:volume rigidity}
-    Let $(M,g)$ be a Riemannian manifold with $\Ric\geq(n-1)H$.
-    If there is an $R>0$ such that $\vol(B_p(R))=\vol(B^H(R))$, then $B_p(R)$ must be isometric to $B^H(R)$.
-\end{prop}
-\begin{proof}
-    By volume comparison theorem, the function
-    \[r\mapsto\frac{\vol(B_p(r))}{\vol(B^H(r))}\leq 1\]
-    is nonincreasing, so if $\vol(B_p(R))=\vol(B^H(R))$ holds for some $R>0$, then $\vol(B_p(\rho))=\vol(B^H(\rho))$ holds for all $0<\rho<R$.
-    Clearly we are before the cut locus.
-    Let's trace back when the equality holds in volume comparison inequality.
-    We used Cauchy--Schwarz inequality in
-    \[|\Hess{r}|^2=|\II|^2\geq\frac{m^2}{n-1},\]
-    hence if equality holds, $\II$ has equal eigenvalues.
-    Thus $\partial B_p(\rho)$ is totally umbilical, in particular, $m(\rho,\theta)$ is constant on $\partial B_p(\rho)$.
-    Under geodesic polar coordinate, with respective to the base point $p$, the metric $g$ has form
-    \[g=dr^2+h(r,\theta).\]
-    Since $\partial B_p(\rho)$ is totally umbilical, we have
-    \[\II=\lambda(r)h\]
-    for all $0<r<R$.
-    Notice that
-    \[\II_{ij}=\langle\nabla_i\partial_r,\partial_j\rangle=\partial_r\langle\partial_i,\partial_j\rangle-\langle\partial_i,\nabla_j\partial_r\rangle=\partial_rh_{ij}-\II_{ij},\]
-    this implies $\II_{ij}=(1/2)\partial_{r}h_{ij}$.
-    Thus we have an ordinary diffenrential equation
-    \[\frac{1}{2}\partial_rh_{ij}=\lambda(r)h_{ij}.\]
-    Solving this equation, we obtain
-    \begin{equation}
-        h_{ij}=(\varphi(r))^2h_{ij}(r_0,\theta).\label{eq:geodesic polar}
-    \end{equation}
-    We know the asymptotic expansion of Riemannian metric under geodesic polar coordinate is
-    \[h_{ij}=r^2\sigma_{ij}+O(r^4),\]
-    where $\sigma$ is the canonical metric of round sphere.
-    Compare~\eqref{eq:geodesic polar}, we obtain $h_{ij}=f(r)\sigma_{ij}$, that is,
-    \[g=dr^2+f(r)\sigma.\]
-    Notice that $S^n(H)$ has metric
-    \[g_H=dr\otimes dr+\sn^2_H(r)\sigma.\]
-    Plug this into $\vol(B_p(\rho))=\vol(B^H(\rho))$, we have
-    \[\int_0^\rho\int_{S^{n-1}}\sqrt{f(r)\det(g_{ij})}d\vol_{S^{n-1}}dr=\int_0^\rho\int_{S^{n-1}}\sqrt{\sn^2_H(r)\det(g_{ij})}d\vol_{S^{n-1}}dr.\]
-    Notice that
-    \[\int_{S^{n-1}}\sqrt{\det(g_{ij})}d\vol_{S^{n-1}}=\omega_{n-1},\]
-    we thus obtain
-    \[\int_0^\rho\sqrt{f(r)}dr=\int_0^\rho{\sn_H(r)}dr\]
-    holds for all $0<\rho<R$.
-    Therefore $f(r)=\sn^2_H(r)$ on $(0,R]$, and $B_p(R)$ is isometric to $B^H(R)$.
-\end{proof}
-
-Using Proposition~\ref{prop:volume rigidity}, we can derive volume rigidity for closed and open manifolds.
-
-\begin{thm}[Volume rigidity for closed manifolds]
-    Let $(M,g)$ be a Riemannian manifold with $\Ric\geq n-1$.
-    If $\vol{M}=\vol{S^n}$, then $M$ is isometric to $S^n$.
-\end{thm}
-\begin{proof}
-    By Bonnet--Myers' theorem, we have $\operatorname{diam}{M}\leq\pi$, hence
-    \[\vol{(B_p(\pi))}=\vol{M}=\vol{S^n}=\vol{(B^1(\pi))}.\]
-    Then apply Proposition~\ref{prop:volume rigidity}.
-\end{proof}
-
-\begin{thm}[Volume rigidity for open manifolds]
-    Let $(M,g)$ be a Riemannian manifold with $\Ric\geq 0$.
-    If
-    \[\lim_{\rho\to\infty}\frac{n\vol{(B_p(\rho))}}{\omega_n\rho^n}=1,\]
-    then $M$ is isometric to $\mathbb{R}^n$.
-\end{thm}
-\begin{proof}
-    The function
-    \[\rho\mapsto\frac{n\vol{(B_p(\rho))}}{\omega_n\rho^n}=\frac{\vol{(B_p(\rho))}}{\vol{(B^0(\rho))}}\]
-    is nonincreasing and has limit $1$, hence
-    \[\vol(B_p(\rho))\geq\vol(B^0(\rho)).\]
-    By volume comparison inequality, the equality must hold, then apply Proposition~\ref{prop:volume rigidity}~to all $\rho>0$.
-\end{proof}
-
-\subsection{Diameter Rigidity}
-
+\medskip
+\definexref{prop:volume rigidity}{\propnumber}{prop}
+\proclaim Proposition~\propnumber. Let $(M,g)$ be a Riemannian manifold with $\Ric\geq(n-1)H$.
+If there is an $R>0$ such that $\vol(B_p(R))=\vol(B^H(R))$, then $B_p(R)$ must be isometric to $B^H(R)$.\par
+\noindent{\it Proof.}\/ By volume comparison theorem, the function
+$$r\mapsto{\vol(B_p(r))\over\vol(B^H(r))}\leq 1$$
+is nonincreasing, so if $\vol(B_p(R))=\vol(B^H(R))$ holds for some $R>0$, then $\vol(B_p(\rho))=\vol(B^H(\rho))$ holds for all $0<\rho<R$.
+Clearly we are before the cut locus.
+Let's trace back when the equality holds in volume comparison inequality.
+We used Cauchy--Schwarz inequality in
+$$|\Hess r|^2=|\II|^2\geq{m^2\over n-1},$$
+hence if equality holds, $\II$ has equal eigenvalues.
+Thus $\partial B_p(\rho)$ is totally umbilical, in particular, $m(\rho,\theta)$ is constant on $\partial B_p(\rho)$.
+Under geodesic polar coordinate, with respective to the base point $p$, the metric $g$ has form
+$$g=dr^2+h(r,\theta).$$
+Since $\partial B_p(\rho))$ is totally umbilical, we have
+$$\II=\lambda(r)h$$
+for all $0<r<R$.
+Notice that
+$$\II_{ij}=\langle\nabla_i\partial_r,\partial_j\rangle=\partial_r\langle\partial_i,\partial_j\rangle-\langle\partial_i,\nabla_j\partial_r\rangle=\partial_rh_{ij}-\II_{ij},$$
+this implies $\II_{ij}=(1/2)\partial_rh_{ij}$.
+Thus we have an ordinary differential equation
+$${1\over2}\partial_rh_{ij}=\lambda(r)h_{ij}.$$
+Solving this equation, we obtain
+$$h_{ij}=(\varphi(r))^2h_{ij}(r_0,\theta).\eqdef{eq:h_ij}$$
+We know the asymptotic expansion of Riemannian metric under geodesic polar coordinate is
+$$h_{ij}=r^2\sigma_{ij}+O(r^4),$$
+where $\sigma$ is the canonical metric of round sphere.
+Compare~\eqref{eq:h_ij}, we obtain $h_{ij}=f(r)\sigma_{ij}$, that is,
+$$g=dr^2+f(r)\sigma.$$
+Notice that $S^n(H)$ has metric
+$$g_H=dr^2+\sn_H^2(r)\sigma.$$
+Plug this into $\vol(B_p(\rho))=\vol(B^H(\rho))$, we have
+$$\int_0^\rho\int_{S^{n-1}}\sqrt{f(r)\det(g_{ij})}d\vol_{S^{n-1}}dr=\int_0^\rho\int_{S^{n-1}}\sqrt{\sn_H^2(r)\det(g_{ij})}d\vol_{S^{n-1}}dr.$$
+Notice that
+$$\int_{S^{n-1}}\sqrt{\det(g_{ij})}d\vol_{S^{n-1}}=\omega_{n-1},$$
+we thus obtain
+$$\int_0^\rho\sqrt{f(r)}dr=\int_0^\rho\sn_H(r)dr$$
+holds for all $0<\rho<R$.
+Therefore $f(r)=\sn_H^2(r)$ on $(0,R]$, and $B_p(R)$ is isometric to $B^H(R)$.
+\advance\propcount by 1
+\qed
+Using~\ref{prop:volume rigidity}, we can derive volume rigidity for closed and open manifolds.
+\medskip
+\proclaim Theorem~\propnumber~{\rm(Volume rigidity for closed manifolds)}.
+Let $(M,g)$ be a Riemannian manifold with $\Ric\geq n-1$.
+If $\vol M=\vol S^{n-1}$, then $M$ is isometric to $S^n$.\par
+\noindent{\it Proof.}\/ By Bonnet--Myers' theorem, we have $\diam M\leq\pi$, hence
+$$\vol(B_p(\pi))=\vol M=\vol S^n=\vol(B^1(\pi)).$$
+Then apply~\ref{prop:volume rigidity}.
+\advance\propcount by 1
+\qed
+\proclaim Theorem~\propnumber~{\rm(Volume rigidity for open manifolds)}.
+Let $(M,g)$ be a Riemannian manifold with $\Ric\geq 0$.
+If
+$$\lim_{\rho\to+\infty}{n\vol(B_p(\rho))\over\omega_n\rho^n}=1,$$
+then $M$ is isometric to ${\bb R}^n$.\par
+\noindent{\it Proof.}\/ The function
+$$\rho\mapsto{n\vol(B_p(\rho))\over\omega_n\rho^n}={\vol(B_p(\rho))\over\vol(B^0(\rho))}$$
+is nonincreasing and has limit $1$, hence
+$$\vol(B_p(\rho))\geq\vol(B^0(\rho)).$$
+By volume comparison inequality, the equality must hold, then apply~\ref{prop:volume rigidity}~to all $\rho>0$.
+\advance\propcount by 1
+\qed
+\advance\subsectcount by 1
+\noindent{\bf\the\sectcount.\the\subsectcount.~Diameter Rigidity.}
 Our result on diameter rigidity for closed manifolds is Shiu-Yuen Cheng's maximal diameter theorem.
-
-\begin{thm}[Maximal diameter]
-    Let $(M,g)$ be a Riemannian manifold with $\Ric\geq n-1$ and $\operatorname{diam}{M}=\pi$, then $M$ is isometric to $S^n$.
-\end{thm}
-\begin{proof}
-    First notice that $M$ is compact by Bonnet--Myers' theorem, so we can choose $p,q\in M$ such that $|pq|=\pi$.
-    Consider $B_p(\rho)$ and $B_q(\pi-\rho)$, by triangle inequality, we have $B_p(\rho)\cap B_q(\pi-\rho)=\varnothing$.
-    Hence by volume comparison inequality, we have
-    \begin{align*}
-        \vol{M}&\geq\vol(B_p(\rho))+\vol(B_q(\pi-\rho))\\
-        &=\frac{\vol(B_p(\rho))}{\vol(B^1(\rho))}\cdot\vol(B^1(\rho))+\frac{\vol(B_q(\pi-\rho))}{\vol(B^1(\pi-\rho))}\cdot\vol(B^1(\pi-\rho))\\
-        &\geq\frac{\vol(B_p(\pi))}{\vol(B^1(\pi))}\cdot\vol(B^1(\rho))+\frac{\vol(B_q(\pi))}{\vol(B^1(\pi))}\cdot\vol(B^1(\pi-\rho))\\
-        &=\frac{\vol{M}}{\vol{S^n}}\cdot(\vol(B^1(\rho))+\vol(B^1(\pi-\rho)))\\
-        &=\frac{\vol{M}}{\vol{S^n}}\cdot\vol{S^n}\\
-        &=\vol{M}.
-    \end{align*}
-    Therefore the equality of volume comparison inequality holds for $0<\rho\leq\pi$ on $M$, applying Proposition~\ref{prop:volume rigidity}~we obtain $B_p(\rho)$ is isometric to $B^1(\rho)$.
-    In particular, $M=B_p(\pi)$ is isometric to $B^1(\pi)=S^n$.
-\end{proof}
-
+\medskip
+\proclaim Theorem~\propnumber~{\rm(Maximal diameter)}.
+Let $(M,g)$ be a Riemannian manifold with $\Ric\geq n-1$ and $\diam M=\pi$, then $M$ is isometric to $S^n$.\par
+\noindent{\it Proof.}\/ First notice that $M$ is compact by Bonnet--Myers' theorem, so we can choose $p,q\in M$ such that $|pq|=\pi$.
+Consider $B_p(\rho)$ and $B_q(\pi-\rho)$, by triangle inequality, we have $B_p(\rho)\cap B_q(\pi-\rho)=\emptyset$.
+Hence by volume comparison inequality, we have
+$$\eqalign{
+    \vol M&\geq\vol(B_p(\rho))+\vol(B_q(\pi-\rho))\cr
+    &={\vol(B_p(\rho))\over\vol(B^1(\rho))}\cdot\vol(B^1(\rho))+{\vol(B_q(\pi-\rho))\over\vol(B^1(\pi-\rho))}\cdot\vol(B^1(\pi-\rho))\cr
+    &\geq{\vol(B_p(\pi))\over\vol(B^1(\pi))}\cdot\vol(B^1(\rho))+{\vol(B_q(\pi))\over\vol(B^1(\pi))}\cdot\vol(B^1(\pi-\rho))\cr
+    &={\vol M\over\vol S^n}\cdot(\vol(B^1(\rho))+\vol(B^1(\pi-\rho)))\cr
+    &={\vol M\over\vol S^n}\cdot\vol S^n\cr
+    &=\vol M.
+}$$
+Therefore the equality of volume comparison inequality holds for $0<\rho\leq\pi$ on $M$, applying~\ref{prop:volume rigidity}~we obtain $B_p(\rho)$ is isometric to $B^1(\rho)$.
+In particular, $M=B_p(\pi)$ is isometric to $B^1(\pi)=S^n$.
+\advance\propcount by 1
+\qed
 We need to explain what does ``diameter rigidity'' mean for an open manifold.
 Being of infinite diameter is not enough, there should be two points at infinity.
-That is, there should be a geodesic adjoining two points at infinity, namely, a line exists.
-
-\begin{defn}
-    Let $\gamma:\mathbb{R}\to M$ be a geodesic, if $\gamma$ is a global isometry, i.\ e.\ for any $s,t\in\mathbb{R}$ the equality $|\gamma(s)\gamma(t)|=|s-t|$ holds, then $\gamma$ is called a \emph{line}.
-\end{defn}
-
-We expect rigidity result happens when a line exists.
-This leads to Cheeger--Gromoll's splitting theorem.
-
-\begin{thm}[Splitting]
-    Let $(M,g)$ be a simply-connected Riemannian manifold with $\Ric\geq 0$, and a line exists on $M$.
-    Then $M$ is isometric to $\mathbb{R}\times N$ with product metric.
-\end{thm}
-
+That is, there should be a geodesic joining two points at infinity, namely, a {\it line}\/ exists.
+\medskip
+\noindent{\bf Definition~\propnumber.} Let $\gamma:{\bb R}\to M$ be a geodesic, if for any $s,t\in{\bb R}$ the equality $|\gamma(s)\gamma(t)|=|s-t|$ holds, then $\gamma$ is called a {\it line}.
+\advance\propcount by 1
+\medskip
+We expect rigidity result happens when a line exists. This leads to Cheeger--Gromoll's splitting theorem.
+\medskip
+\proclaim Theorem~\propnumber~{\rm(Splitting)}.
+Let $(M,g)$ be a simply-connected Riemannian manifold with $\Ric\geq 0$, and a line exists on $M$.
+Then $M$ is isometric to ${\bb R}\times N$ with product metric.\par
+\advance\propcount by 1
 Before proving this theorem, we need to input several big theorems.
-
-\begin{thm}[Strong maximum principle]
-    Let $(M,g)$ be a Riemannian manifold, $f$ be a Lipschitz function on $M$.
-    If $f$ satisfies $\Delta f\leq 0$ in the distribution sense and has a global minimum, then $f$ is constant on $M$.
-\end{thm}
-
-\begin{thm}[Weyl's lemma]
-    Let $(M,g)$ be a Riemannian manifold, $f$ be a Lipschitz function.
-    If $\Delta f=0$ in the distribution sense, then $f$ is smooth.
-\end{thm}
-
-\begin{thm}[De Rham decomposition]
-    Let $(M,g)$ be a simply-connected Riemannian manifold.
-    Let $\mathcal{F}$ be a distribution that is parallel with respective to the Levi--Civita connection, $\mathcal{F}^\perp$ be its orthogonal complement.
-    For any $p\in M$, let $N,N^\perp$ be the maximal integral submanifold of $\mathcal{F},\mathcal{F}^\perp$ at $p$.
-    Equip $N,N^\perp$ with induced metric from $M$, then $M$ is isometric to $N\times N^\perp$ with product metric.
-\end{thm}
-
+\proclaim Theorem~\propnumber~{\rm(Strong maximum principle)}.
+Let $(M,g)$ be a Riemannian manifold, $f$ be a Lipschitz function on $M$.
+If $f$ satisfies $\Delta f\leq 0$ in the distribution sense and has a global minimum, then $f$ is constant on $M$.\par
+\advance\propcount by 1
+\proclaim Theorem~\propnumber~{\rm(Weyl's lemma)}.
+Let $(M,g)$ be a Riemannian manifold, $f$ be a Lipschitz function.
+If $\Delta f=0$ in the distribution sense, then $f$ is smooth.\par
+\advance\propcount by 1
+\proclaim Theorem~\propnumber~{\rm(De Rham decomposition)}.
+Let $(M,g)$ be a simply-connected Riemannian manifold.
+Let $\cal F$ be a distribution that is parallel with respective to the Levi--Civita connection, ${\cal F}^\perp$ be its orthogonal complement.
+For any $p\in M$, let $N,N^\perp$ be the maximal integral submanifold of ${\cal F},{\cal F}^\perp$ at $p$.
+Equip $N,N^\perp$ with induced metric from $M$, then $M$ is isometric to $N\times N^\perp$ with product metric.\par
+\advance\propcount by 1
 We will not prove these three theorems here.
+\medskip
+\noindent{\it Proof of splitting theorem.}\/ The proof uses {\it Busemann function}.
+We first define and discuss some properties of Busemann function.
 
-\begin{proof}[Proof of splitting theorem]
-    The proof uses \emph{Busemann function}.
-    We first define and discuss some properties of Busemann function.
+Fix $p\in M$, let $\gamma$ be a line on $M$.
+For $t\in{\bb R}$, define $b^+_t(p)=|p\gamma(t)|-t$.
+Then by triangle inequality,, if $t_1>t_2$, we have
+$$b^+_{t_1}(p)-b^+_{t_2}=|p\gamma(t_1)|-|p(\gamma(t_2)|-(t_1-t_2)\leq 0,$$
+hence $b^+_t(p)$ is nonincreasing with respective to $t$.
+Moreover, by triangle inequality, we have $b^+_t(p)\geq-|p\gamma(0)|$, hence $b^+_t(p)$ is bounded below.
+Thus we can take limit
+$$B^+(p):=\lim_{t\to+\infty}b^+_t(p).$$
+Similarly we define $b^-_t(p)=|p\gamma(-t)|-t$, we have the limit
+$$B^-(p):=\lim_{t\to+\infty}b^-_t(p)$$
+is well-defined.
 
-    Fix $p\in M$, let $\gamma$ be a line on $M$.
-    For $t\in\mathbb{R}$, define $b^+_t(p)=|p\gamma(t)|-t$.
-    Then by triangle inequality, if $t_1>t_2$, we have
-    \[b^+_{t_1}(p)-b^+_{t_2}(p)=|p\gamma(t_1)|-|p\gamma(t_2)|-(t_1-t_2)\leq 0,\]
-    hence $b^+_t(p)$ is nonincreasing with respective to $t$.
-    Moreover, by triangle inequality, we have $b^+_t(p)\geq-|p\gamma(0)|$, hence $b^+_t(p)$ is bounded below.
-    Thus we can take limit
-    \[B^+(p):=\lim_{t\to+\infty}b^+_t(p).\]
-    Similarly we define $b^-_t(p)=|p\gamma(-t)|-t$, we have the limit
-    \[B^-(p):=\lim_{t\to+\infty}b^-_t(p)\]
-    is well-defined.
+Now we discuss the properties of Busemann functions.
+First we notice that
+$$B^+(p)+B^-(p)=|p\gamma(t)|+|p\gamma(-t)|-2t\geq 0.$$
+Then by Laplacian comparison inequality, we have for any test function $\varphi\in C^\infty_0(M)$, $\varphi\geq 0$
+$$\int_Mb^+_t\Delta\varphi\leq\int_M{n-1\over b^+_t+t}\cdot\varphi.$$
+Let $t\to+\infty$, we obtain (we may use Lebesgue's dominated convergence theorem)
+$$\int_MB^+\Delta\varphi\leq 0.$$
+Similarly we have
+$$\int_MB^-\Delta\varphi\leq 0.$$
+Thus $\Delta(B^++B^-)\leq 0$ in the distribution sense.
+Moreover, clearly $B^++B^-=0$ on $\gamma$, hence $B^++B^-$ satisfies the assumption of strong maximum principle, we have $B^++B^-=0$.
+In particular, we have $\Delta(B^++B^-)=0$ in the classical sense, hence $\Delta B^+=\Delta B^-=0$ in the distribution sense.
+By Weyl's lemma, we have $B^+$ and $B^-$ are both smooth.
+Moreover, since the gradient of distance function has modulus $1$ almost everywhere, we have $|\nabla B^+|=1$.
+Using Bochner's formula, we have
+$$0=|\Hess{B^+}|^2+\langle\nabla B^+.\nabla\Delta B^+\rangle+\Ric(\nabla B^+,\nabla B^+)\geq|\Hess{B^+}|^2,$$
+hence $\Hess{B^+}=0$.
 
-    Now we discuss the properties of Busemann functions.
-    First we notice that
-    \[B^+(p)+B^-(p)=|p\gamma(t)|+|p\gamma(-t)|-2t\geq 0.\]
-    Then by Laplacian comparison inequality, we have for any test function $\varphi\in C^\infty_0(M)$, $\varphi\geq 0$
-    \[\int_{M}b^+_t\Delta\varphi\leq\int_M\frac{n-1}{b^+_t+t}\cdot\varphi.\]
-    Let $t\to+\infty$, we obtain (we may use Lebesgue's dominated convergence theorem)
-    \[\int_MB^+\Delta\varphi\leq 0.\]
-    Similarly we have
-    \[\int_MB^-\Delta\varphi\leq 0.\]
-    Thus $\Delta(B^++B^-)\leq 0$ in the distribution sense.
-    Moreover, clearly $B^++B^-=0$ on $\gamma$, hence $B^++B^-$ satisfies the assumption of strong maximum principle, we have $B^++B^-=0$.
-    In particular, we have $\Delta(B^++B^-)=0$ in the classical sense, hence $\Delta B^+=\Delta B^-=0$ in the distribution sense.
-    By Weyl's lemma, we have $B^+$ and $B^-$ are both smooth.
-    Moreover, since the gradient of distance function has modulus $1$ almost everywhere, we have $|\nabla B^+|=1$.
-    Using Bochner's formular, we have
-    \[0=|\Hess{B^+}|^2+\langle\nabla B^+,\nabla\Delta B^+\rangle+\Ric(\nabla B^+,\nabla B^+)\geq|\Hess{B^+}|^2,\]
-    hence $\Hess{B^+}=0$.
-
-    The rest of part is easy geometry.
-    Since covariant differentiation is commutative with musical isomorphism, we have $\nabla(\nabla B^+)=(\Hess{B^+})^\sharp=0$.
-    Hence $\nabla B^+$ is parallel.
-    Choose a regular point $p$ of $B^+$, by de Rham's decomposition theorem, $M$ is isometric to the product of integral curve of $\nabla B^+$ through $p$ and the level set of $B^+$ at $p$.
-    Without loss of generality we can assume $p$ lies on $\gamma$, then since $\nabla B^+$ is parallel, the integral curve is the geodesic through $p$, i.\ e.\ the line.
-\end{proof}
+The rest part is easy geometry.
+Since covariant differetiation is commutative with musical isomorphism, we have $\nabla(\nabla B^+)=(\Hess{B^+})^\sharp=0$.
+Hence $\nabla B^+$ is parallel.
+Choose a regular point $p$ of $B^+$, by de Rham's decomposition theorem, $M$ is isometric to the product of integral curve of $\nabla B^+$ through $p$ and the level set of $B^+$ at $p$.
+Without loss of generality we can assume $p$ lies on $\gamma$, then since $\nabla B^+$ is parallel, the integral curve is the geodesic through $p$, i.e.\ the line.
+\qed

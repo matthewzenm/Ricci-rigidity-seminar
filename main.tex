@@ -1,49 +1,66 @@
-\documentclass{amsart}
+\pdfpagewidth=210mm
+\pdfpageheight=297mm
+% \hoffset=25mm
+% \voffset=25mm
+\hsize=160mm  % 210 - 2*25
+% \vsize=247mm  % 297 - 2*25
 
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage[shortlabels]{enumitem}
-\usepackage[colorlinks]{hyperref}
+\input eplain
+\beginpackages
+\usepackage{color}
+\usepackage{url}
+\endpackages
+\enablehyperlinks
+\hlopts{bwidth=0}
 
-\theoremstyle{definition}
-\newtheorem{defn}{Definition}[section]
-\newtheorem{eg}[defn]{Example}
-\theoremstyle{plain}
-\newtheorem{thm}[defn]{Theorem}
-\newtheorem{prop}[defn]{Proposition}
-\newtheorem{lem}[defn]{Lemma}
-\newtheorem{cor}[defn]{Corollary}
-\theoremstyle{remark}
-\newtheorem{rem}[defn]{Remark}
+\font\titlefont=txb at 14pt
+\font\authorfont=txr at 12pt
+\font\sectionfont=txsc at 12pt
+\font\footnotefont=txr at 7pt
+\input fontsetup
 
-\numberwithin{equation}{section}
+\newcount\sectcount
+\newcount\subsectcount
+\newcount\propcount
+\def\propnumber{{\the\sectcount.\the\propcount}}
+\def\eqconstruct#1{\the\sectcount.#1}
+\def\sectionword{Section}
+\def\thmword{Theorem}
+\def\axword{Axiom}
+\def\propword{Proposition}
+\def\defnword{Definition}
+\def\lemword{Lemma}
+\def\corword{Corollary}
+\def\remword{Remark}
 
-\newcommand{\R}[4]{R_{#1}{}_{#2}{}_{#3}{}^{#4}}
-\DeclareMathOperator{\vol}{vol}
-\DeclareMathOperator{\Sect}{Sect}
-\DeclareMathOperator{\Ric}{Ric}
-\DeclareMathOperator{\Scal}{Scal}
-\DeclareMathOperator{\tr}{tr}
-\DeclareMathOperator{\Hess}{Hess}
-\DeclareMathOperator{\II}{II}
-\DeclareMathOperator{\Cut}{Cut}
-\DeclareMathOperator{\sn}{sn}
+\def\qed{\nobreak\hfill\hbox{\vrule height 6pt width 6pt depth 0pt}\medskip}
+\def\tr{\mathop{\rm tr}\nolimits}
+\def\Hess{\mathop{\rm Hess}\nolimits}
+\def\Ric{\mathop{\rm Ric}\nolimits}
+\def\II{\mathop{\rm II}\nolimits}
+\def\vol{\mathop{\rm vol}\nolimits}
+\def\sn{\mathop{\rm sn}\nolimits}
+\def\diam{\mathop{\rm diam}\nolimits}
 
-\title[Ricci Rigidity Notes]{Notes on Rigidity Results for Manifolds with Lower Ricci Curvature Bound}
-\author{Mengchen Zeng}
-\date{\today}
-\address{School of Mathematical Sciences, Beijing Normal University, Beijing, China, P.\ R., 100875.}
-
-\begin{document}
-
-\maketitle
+\centerline{\titlefont Notes on Rigidity Results for Manifolds with Lower}
+\smallskip
+\centerline{\titlefont Ricci Curvature Bound}
+\medskip
+\centerline{\authorfont Mengchen Zeng\raise 1ex \hbox{\footnotefont\dag}}\vfootnote\dag{School of Mathematical Sciences, Beijing Normal University.}
+\medskip
+\centerline{\authorfont\today}
+\bigskip
 
 In this seminar, all Riemannian manifolds are assumed to be complete.
 The manifold $M$ is understood to be $n$-dimensional if not specially mentioned.
+\bigskip
+\sectcount=1
+\subsectcount=1
+\propcount=1
+\eqnumber=0
 
-\input{tensor.tex}
-\input{comparison.tex}
-\input{rigidity.tex}
+\input tensor
+\input comparison
+\input rigidity
 
-\end{document}
+\bye
